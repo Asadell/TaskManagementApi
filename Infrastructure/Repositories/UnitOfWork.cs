@@ -10,20 +10,20 @@ public class UnitOfWork : IUnitOfWork
     private IDbContextTransaction? _transaction;
 
     public IUserRepository Users { get; }
-    // public IProjectRepository Projects { get; }
-    // public ITaskRepository Tasks { get; }
+    public IProjectRepository Projects { get; }
+    public ITaskRepository Tasks { get; }
 
     public UnitOfWork(
         AppDbContext context,
-        IUserRepository userRepository
-        // IProjectRepository projectRepository,
-        // ITaskRepository taskRepository
+        IUserRepository userRepository,
+        IProjectRepository projectRepository,
+        ITaskRepository taskRepository
         )
     {
         _context = context;
         Users = userRepository;
-        // Projects = projectRepository;
-        // Tasks = taskRepository;
+        Projects = projectRepository;
+        Tasks = taskRepository;
     }
 
     public async Task<int> SaveChangesAsync()
