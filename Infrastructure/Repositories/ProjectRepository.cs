@@ -55,4 +55,9 @@ public class ProjectRepository : Repository<Project>, IProjectRepository
         return await _context.ProjectMembers
             .FirstOrDefaultAsync(m => m.ProjectId == projectId && m.UserId == userId);
     }
+
+    public async Task AddMemberAsync(ProjectMember member)
+    {
+        await _context.ProjectMembers.AddAsync(member);
+    }
 }
