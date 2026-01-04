@@ -9,4 +9,5 @@ public interface IProjectRepository : IRepository<Project>
     Task<IEnumerable<Project>> GetProjectsByOwnerAsync(int ownerId);
     Task<bool> IsUserMemberAsync(int projectId, int userId);
     Task<ProjectMember?> GetProjectMemberAsync(int projectId, int userId);
+    Task AddMemberAsync(ProjectMember member);
 }

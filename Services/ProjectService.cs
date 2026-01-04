@@ -146,6 +146,7 @@ public class ProjectService : IProjectService
             UserId = addMemberDto.UserId,
             Role = addMemberDto.Role
         };
+        await _unitOfWork.Projects.AddMemberAsync(member);
 
         await _unitOfWork.SaveChangesAsync();
         return true;
